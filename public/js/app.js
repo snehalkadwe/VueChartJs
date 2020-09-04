@@ -2077,6 +2077,119 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NeoAsteroidComponent.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NeoAsteroidComponent.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      start_date: null,
+      end_date: null,
+      fastest_asteroid_id: "",
+      fastest_asteroid: "",
+      NeoClosest_id: "",
+      NeoClosest: "",
+      total_no_of_asteroid: "",
+      asteroids_count_values: ""
+    };
+  },
+  methods: {
+    getNeoDate: function getNeoDate() {
+      var _this = this;
+
+      axios.post("/getNeoDate", {
+        start_date: this.start_date,
+        end_date: this.end_date
+      }).then(function (response) {
+        _this.fastest_asteroid_id = response.data.fastest_asteroid_id, _this.fastest_asteroid = response.data.fastest_asteroid, _this.NeoClosest_id = response.data.NeoClosest_id, _this.NeoClosest = response.data.NeoClosest, _this.asteroids_count_values = response.data.asteroids_count_values, _this.total_no_of_asteroid = response.data.asteroids_count, // console.log(response.data);
+        _this.getChart();
+      }) // .then((response) => console.log(response.data))
+      ["catch"](function (err) {
+        return console.log(err);
+      });
+    },
+    getChart: function getChart() {
+      //   alert("function call to display chart");
+      var tot_no_asteroids = this.total_no_of_asteroid;
+      var asteroids_count_values = this.asteroids_count_values;
+      console.log(tot_no_asteroids);
+      console.log(asteroids_count_values); // plot the values on line graph
+
+      var ctx = document.getElementById("neoChart").getContext("2d");
+      var myChart = new Chart(ctx, {
+        type: "line",
+        data: {
+          labels: tot_no_asteroids,
+          datasets: [{
+            label: "Total No of Asteroids",
+            data: asteroids_count_values,
+            //   backgroundColor: [
+            //     "rgba(255, 99, 132, 0.2)",
+            //     "rgba(54, 162, 235, 0.2)",
+            //     "rgba(255, 206, 86, 0.2)",
+            //     "rgba(75, 192, 192, 0.2)",
+            //     "rgba(153, 102, 255, 0.2)",
+            //     "rgba(255, 159, 64, 0.2)",
+            //   ],
+            borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)", "rgba(255, 206, 86, 1)", "rgba(75, 192, 192, 1)", "rgba(153, 102, 255, 1)", "rgba(255, 159, 64, 1)"],
+            borderWidth: 1
+          }]
+        }
+      });
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -75184,6 +75297,170 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NeoAsteroidComponent.vue?vue&type=template&id=81eb7096&":
+/*!***********************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/NeoAsteroidComponent.vue?vue&type=template&id=81eb7096& ***!
+  \***********************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "container" }, [
+    _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-6" }, [
+        _c("h3", { staticClass: "text-info" }, [
+          _vm._v("Neo Asteroid Controller")
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          {
+            attrs: { action: "" },
+            on: {
+              submit: function($event) {
+                $event.preventDefault()
+                return _vm.getNeoDate()
+              }
+            }
+          },
+          [
+            _vm._v(
+              "\n        You have selected start date " +
+                _vm._s(_vm.start_date) +
+                " and end date " +
+                _vm._s(_vm.end_date) +
+                "\n        "
+            ),
+            _c("div", { staticClass: "mt-4" }, [
+              _c("label", [_vm._v("Strat Date")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.start_date,
+                    expression: "start_date"
+                  }
+                ],
+                staticClass: "form-control col-md-6",
+                attrs: { type: "date", name: "start_date" },
+                domProps: { value: _vm.start_date },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.start_date = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "mt-4" }, [
+              _c("label", [_vm._v("End Date")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.end_date,
+                    expression: "end_date"
+                  }
+                ],
+                staticClass: "form-control col-md-6",
+                attrs: { type: "date", name: "end_date" },
+                domProps: { value: _vm.end_date },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.end_date = $event.target.value
+                  }
+                }
+              })
+            ]),
+            _vm._v(" "),
+            _vm._m(0)
+          ]
+        )
+      ]),
+      _vm._v(" "),
+      _vm._m(1)
+    ]),
+    _vm._v(" "),
+    _c("div", { staticClass: "mr-auto col-md-12 mt-4" }, [
+      _c("h3", { staticClass: "text-info" }, [_vm._v("NEO Asteroid Data")]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Fastest Asteroid Id & Speed(in KM/Hour)")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          _vm._s(_vm.fastest_asteroid_id) + ", " + _vm._s(_vm.fastest_asteroid)
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Closest Asteroid id and distance")]),
+      _vm._v(" "),
+      _c("p", [
+        _vm._v(
+          "\n      " +
+            _vm._s(_vm.NeoClosest_id) +
+            "\n      " +
+            _vm._s(_vm.NeoClosest) +
+            "\n    "
+        )
+      ]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Total No of Asteroids")]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.asteroids_count_values))]),
+      _vm._v(" "),
+      _c("h4", [_vm._v("Keys")]),
+      _vm._v(" "),
+      _c("p", [_vm._v(_vm._s(_vm.total_no_of_asteroid))])
+    ])
+  ])
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "mt-4" }, [
+      _c(
+        "button",
+        { staticClass: "btn btn-secondary", attrs: { type: "submit" } },
+        [_vm._v("Submit")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "col-md-6" }, [
+      _c("h3", { staticClass: "text-info" }, [_vm._v("NEO Chart")]),
+      _vm._v(" "),
+      _c("canvas", { attrs: { id: "neoChart" } })
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js":
 /*!********************************************************************!*\
   !*** ./node_modules/vue-loader/lib/runtime/componentNormalizer.js ***!
@@ -87373,6 +87650,8 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 Vue.component("asteroid-component", __webpack_require__(/*! ./components/AsteroidDataComponent.vue */ "./resources/js/components/AsteroidDataComponent.vue")["default"]);
+Vue.component("neo-asteroid-component", __webpack_require__(/*! ./components/NeoAsteroidComponent.vue */ "./resources/js/components/NeoAsteroidComponent.vue")["default"]); // Vue.component("neo-chart-component", require("./components/NeoChartComponent.vue").default);
+
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -87494,6 +87773,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AsteroidDataComponent_vue_vue_type_template_id_dd840bc6___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AsteroidDataComponent_vue_vue_type_template_id_dd840bc6___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/js/components/NeoAsteroidComponent.vue":
+/*!**********************************************************!*\
+  !*** ./resources/js/components/NeoAsteroidComponent.vue ***!
+  \**********************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _NeoAsteroidComponent_vue_vue_type_template_id_81eb7096___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./NeoAsteroidComponent.vue?vue&type=template&id=81eb7096& */ "./resources/js/components/NeoAsteroidComponent.vue?vue&type=template&id=81eb7096&");
+/* harmony import */ var _NeoAsteroidComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./NeoAsteroidComponent.vue?vue&type=script&lang=js& */ "./resources/js/components/NeoAsteroidComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _NeoAsteroidComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _NeoAsteroidComponent_vue_vue_type_template_id_81eb7096___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _NeoAsteroidComponent_vue_vue_type_template_id_81eb7096___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/NeoAsteroidComponent.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/NeoAsteroidComponent.vue?vue&type=script&lang=js&":
+/*!***********************************************************************************!*\
+  !*** ./resources/js/components/NeoAsteroidComponent.vue?vue&type=script&lang=js& ***!
+  \***********************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NeoAsteroidComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./NeoAsteroidComponent.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NeoAsteroidComponent.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_NeoAsteroidComponent_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/components/NeoAsteroidComponent.vue?vue&type=template&id=81eb7096&":
+/*!*****************************************************************************************!*\
+  !*** ./resources/js/components/NeoAsteroidComponent.vue?vue&type=template&id=81eb7096& ***!
+  \*****************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NeoAsteroidComponent_vue_vue_type_template_id_81eb7096___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../node_modules/vue-loader/lib??vue-loader-options!./NeoAsteroidComponent.vue?vue&type=template&id=81eb7096& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/NeoAsteroidComponent.vue?vue&type=template&id=81eb7096&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NeoAsteroidComponent_vue_vue_type_template_id_81eb7096___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_NeoAsteroidComponent_vue_vue_type_template_id_81eb7096___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

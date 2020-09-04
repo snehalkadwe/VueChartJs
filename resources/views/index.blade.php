@@ -12,16 +12,7 @@
 <body>
 
     <div class="container-fluid p-4" id="app">
-        <div class="row">
-            <div class="col-md-6">
-                 <neo-asteroid-component></neo-asteroid-component>
-            </div>
-            <div class="col-md-6 mx-auto">
-                 <h3 class="text-info">NEO Chart</h3>
-
-                <neo-chart-component></neo-chart-component>
-            </div>
-        </div>
+        <neo-asteroid-component></neo-asteroid-component>
     </div>
 
 

@@ -24,7 +24,11 @@ Vue.component(
     "asteroid-component",
     require("./components/AsteroidDataComponent.vue").default
 );
-
+Vue.component(
+    "neo-asteroid-component",
+    require("./components/NeoAsteroidComponent.vue").default
+);
+// Vue.component("neo-chart-component", require("./components/NeoChartComponent.vue").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

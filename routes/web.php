@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
 });
 
 Auth::routes();
 
-Route::get('/index', 'HomeController@index')->name('home');
+// Route::get('/index', 'HomeController@index')->name('home');
+Route::post('/getNeoDate', 'NeoAsteroidController@getNeoDate')->name('index');
